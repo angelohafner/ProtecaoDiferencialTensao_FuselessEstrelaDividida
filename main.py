@@ -1,5 +1,6 @@
 import streamlit as st
 import numpy as np
+import pandas as pd
 from impedance_analysis import ImpedanceAnalysis
 from input_data import texto_1, texto_2
 
@@ -61,12 +62,18 @@ def main():
         col1, col2 = st.columns(2)
         with col1:
             st.write("Rede 1 - Tensões e Potências Reativas:")
-            df1 = np.column_stack((np.abs(voltage_matrix_1) / 1e3, reactive_power_matrix_1 / 1e3))
-            st.dataframe(df1, width=300)
+            df1 = pd.DataFrame({
+                "Tensões (kV)": np.abs(voltage_matrix_1).flatten() / 1e3,
+                "Potências Reativas (kVAr)": reactive_power_matrix_1.flatten() / 1e3
+            })
+            st.dataframe(df1)
         with col2:
             st.write("Rede 2 - Tensões e Potências Reativas:")
-            df2 = np.column_stack((np.abs(voltage_matrix_2) / 1e3, reactive_power_matrix_2 / 1e3))
-            st.dataframe(df2, width=300)
+            df2 = pd.DataFrame({
+                "Tensões (kV)": np.abs(voltage_matrix_2).flatten() / 1e3,
+                "Potências Reativas (kVAr)": reactive_power_matrix_2.flatten() / 1e3
+            })
+            st.dataframe(df2)
 
         # Dados do capacitor de baixa tensão
         st.subheader("Grandezas do Capacitor de Baixa Tensão")
