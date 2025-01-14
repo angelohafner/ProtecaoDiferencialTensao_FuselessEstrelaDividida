@@ -11,7 +11,7 @@ def configure_inputs():
     tensao_kv = st.sidebar.number_input("Tensão de Linha (kV)", value=138.0, step=1.0, format="%.2f")
     nr_serie = st.sidebar.number_input("Número de Capacitores em Série", value=12, step=1, format="%d")
     nr_paralelo = st.sidebar.number_input("Número de Capacitores em Paralelo", value=1, step=1, format="%d")
-    capacitancia_padrao_uf = st.sidebar.number_input("Capacitância Padrão (µF)", value=8.16, step=0.1, format="%.2f")
+    capacitancia_padrao_uf = st.sidebar.number_input("Capacitância Padrão (µF)", value=8.37, step=0.1, format="%.2f")
     capacitancia_baixa_tensao_uf = st.sidebar.number_input("Capacitância Baixa Tensão (µF)", value=200.0, step=1.0,
                                                            format="%.2f")
     nr_serie_internos = st.sidebar.number_input("Número de SubCapacitores em Série", value=4, step=1, format="%d")
